@@ -1,0 +1,11 @@
+E:\VS15\MegaDoc\DomainModels\bin\Debug\App_Data\MegaDocDB.mdf
+E:\VS15\MegaDoc\DomainModels\bin\Debug\App_Data\MegaDocDB_log.ldf
+E:\VS15\MegaDoc\DomainModels\bin\Debug\DomainModels.dll
+E:\VS15\MegaDoc\DomainModels\bin\Debug\DomainModels.pdb
+E:\VS15\MegaDoc\DomainModels\bin\Debug\Iesi.Collections.dll
+E:\VS15\MegaDoc\DomainModels\bin\Debug\NHibernate.dll
+E:\VS15\MegaDoc\DomainModels\bin\Debug\Iesi.Collections.xml
+E:\VS15\MegaDoc\DomainModels\bin\Debug\NHibernate.xml
+E:\VS15\MegaDoc\DomainModels\obj\Debug\DomainModels.dll
+E:\VS15\MegaDoc\DomainModels\obj\Debug\DomainModels.pdb
+E:\VS15\MegaDoc\DomainModels\bin\Debug\hibernate.cfg.xml
