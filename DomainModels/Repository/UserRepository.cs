@@ -79,5 +79,12 @@ namespace DomainModels.Repository
             }
         }
 
+        public User GetbyLogin(string Login)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                return session.QueryOver<User>().And(u => u.Login == Login).SingleOrDefault();
+            }
+        }
     }
 }

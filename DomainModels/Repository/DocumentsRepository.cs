@@ -9,8 +9,17 @@ using System.Threading.Tasks;
 
 namespace DomainModels.Repository
 {
-    public class DocumentsRepository :  IDocumentsRepository
+    public class DocumentsRepository : IDocumentsRepository
     {
+        public Documents Create()
+        {
+            return new Documents()
+            {
+                Uid = Guid.NewGuid(),
+                NameDate = DateTime.Now
+            };
+        }
+
         public void Delete(Documents entity)
         {
             using (ISession session = NHibernateHelper.OpenSession())
@@ -31,14 +40,14 @@ namespace DomainModels.Repository
             }
         }
 
-        public ICollection<Documents> GetAll()
+        public ICollection<Documents> GetAll(User user)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
-                return session.QueryOver<Documents>()
-                    .List();
+                return session.QueryOver<Documents>().And(d=>d.Author == user).List();
             }
         }
+
 
         public void Update(Documents entity)
         {

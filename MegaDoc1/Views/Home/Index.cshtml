@@ -1,39 +1,85 @@
-﻿@model IEnumerable<DomainModels.Models.File>
+﻿@model IEnumerable<DomainModels.Models.Documents>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Список всех документов";
+    var message = ViewBag.Message;
 }
 
-<h2>Index</h2>
+<h2>Список всех документов</h2>
+@if (message != null)
+{
+    <p>@message</p>
+}
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Добавить документ", "AddDocument")
+</p>
+<p>
+    <input type="text" id="Search" placeholder="Поиск" />
 </p>
 <table class="table">
+    <thead>
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Uid)
+        <th onclick="Sort(this,'.Id')" id="Id">
+            Id <span class="glyphicon" ></span>
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
+        <th onclick="Sort(this, '.Uid')">
+            Guid <span class="glyphicon glyphicon-menu-down"></span>
+        </th>
+        <th onclick="Sort(this, '.NameDate')">
+            Дата <span class="glyphicon glyphicon-menu-down"></span>
+        </th>
+        <th onclick="Sort(this, '.Name')">
+            Название документа <span class="glyphicon glyphicon-menu-down"></span>
         </th>
         <th></th>
+        <th></th>
     </tr>
+    </thead>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Uid)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
-
+        @Html.Partial("Sort", Model)
+    
 </table>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+
+    $("#Search").keyup(function () {
+        var rows = $("tbody").find("tr").hide();
+        var data = this.value.split(" ");
+        $.each(data, function (i, v) {
+            rows.filter(":contains('" + v + "')").show();
+        });
+
+    });
+
+    function Sort(elem, name) {
+
+        var row = name;
+        var $table = $("table");
+        var $rows = $("tbody > tr");
+
+
+            $rows.sort(function (a, b) {
+                var keyA = $(row, a).text();
+                var keyB = $(row, b).text();
+
+                if (keyA > keyB) {
+                    return 1;
+                }
+                if (keyA < keyB) {
+                    return -1;
+                }
+                // a должно быть равным b
+                return 0;
+
+            });
+            $.each($rows, function (index, row) {
+                $table.append(row);
+            });
+       
+    };
+
+
+
+</script>

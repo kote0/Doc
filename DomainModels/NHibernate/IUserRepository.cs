@@ -15,6 +15,7 @@ namespace DomainModels.NHibernate
         ICollection<User> GetAll();
         User Create();
         bool IsValid(string Login, string Password);
+        User GetbyLogin(string Login);
 
     }
 }
