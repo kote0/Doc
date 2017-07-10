@@ -10,9 +10,11 @@
     </id>
     <property name="Uid" />
     <property name="Name" />
-    <property name="BinaryFile" />
+    <property name="BinaryFile" type="BinaryBlob">
+      <column name="BinaryFile" sql-type="varbinary(2147483647)" length="2147483647"/>
+    </property>
+    <property name="NameDate" />
 
     <many-to-one name="Author" class="User" column="AuthorId" lazy="false" />
-
   </class>
 </hibernate-mapping>

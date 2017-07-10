@@ -21,13 +21,13 @@ namespace MegaDoc1.Controllers
         {
             return View();
         }
-        
+
         [HttpPost]
         public ActionResult Login(string Login, string Password)
         {
             if (UserRepository.IsValid(Login, Password))
             {
-                FormsAuthentication.SetAuthCookie(Login, true);
+                FormsAuthentication.SetAuthCookie(Login, false);
                 return RedirectToAction("Index", "Home");
             }
             else

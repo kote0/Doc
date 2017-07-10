@@ -21,7 +21,7 @@ namespace MegaDoc1
 
             // регистрируем споставление типов
             builder.RegisterType<UserRepository>().As<IUserRepository>();
-            builder.RegisterType<FileRepository>().As<IFileRepository>();
+            builder.RegisterType<DocumentsRepository>().As<IDocumentsRepository>();
 
 
             // создаем новый контейнер с теми зависимостями, которые определены выше

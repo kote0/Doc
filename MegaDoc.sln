@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaDoc", "MegaDoc\MegaDoc.csproj", "{0628933C-1CDC-4C52-889D-939A723D5F0C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainModels", "DomainModels\DomainModels.csproj", "{9F38ACB1-AF27-45F7-8DDB-F1569A8C37AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegaDoc1", "MegaDoc1\MegaDoc1.csproj", "{C1F13951-AA95-4E02-A448-65773E9E7FD1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0628933C-1CDC-4C52-889D-939A723D5F0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0628933C-1CDC-4C52-889D-939A723D5F0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0628933C-1CDC-4C52-889D-939A723D5F0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0628933C-1CDC-4C52-889D-939A723D5F0C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9F38ACB1-AF27-45F7-8DDB-F1569A8C37AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9F38ACB1-AF27-45F7-8DDB-F1569A8C37AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F38ACB1-AF27-45F7-8DDB-F1569A8C37AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F38ACB1-AF27-45F7-8DDB-F1569A8C37AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1F13951-AA95-4E02-A448-65773E9E7FD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1F13951-AA95-4E02-A448-65773E9E7FD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1F13951-AA95-4E02-A448-65773E9E7FD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1F13951-AA95-4E02-A448-65773E9E7FD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -13,5 +13,6 @@ namespace DomainModels.Models
         public virtual string Name { get; set; }
         public virtual User Author { get; set; }
         public virtual byte[] BinaryFile { get; set; }
+        public virtual DateTime? NameDate { get; set; }
     }
 }

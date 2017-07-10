@@ -1,0 +1,35 @@
+﻿@model IEnumerable<DomainModels.Models.Documents>
+
+<tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="Id">
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td class="Uid">
+                @Html.DisplayFor(modelItem => item.Uid)
+            </td>
+            <td class="NameDate">
+                @Html.DisplayFor(modelItem => item.NameDate)
+            </td>
+            <td class="Name">
+                @if (item.Name.Length > 30)
+                {
+                    @item.Name.Substring(0,30)@:...
+                }
+                else
+                {
+                    @item.Name
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
+            </td>
+
+            <td>
+                @Html.ActionLink("Скачать", "Download", new { id = item.Id })
+            </td>
+        </tr>
+    }
+</tbody>

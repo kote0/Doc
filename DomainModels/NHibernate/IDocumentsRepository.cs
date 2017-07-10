@@ -9,9 +9,10 @@ namespace DomainModels.NHibernate
 {
     public interface IDocumentsRepository 
     {
+        Documents Create();
         Documents Get(long Id);
         void Delete(Documents entity);
         void Update(Documents entity);
-        ICollection<Documents> GetAll();
+        ICollection<Documents> GetAll(User user);
     }
 }
