@@ -14,5 +14,6 @@ namespace DomainModels.NHibernate
         void Delete(Documents entity);
         void Update(Documents entity);
         ICollection<Documents> GetAll(User user);
+        ICollection<Documents> SearchDocument(string search, User user);
     }
 }

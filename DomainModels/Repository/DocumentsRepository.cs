@@ -48,6 +48,15 @@ namespace DomainModels.Repository
             }
         }
 
+        public ICollection<Documents> SearchDocument(string search, User user)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                return session.QueryOver<Documents>().And(d => d.Author == user)
+                    .WhereRestrictionOn(d => d.Name).IsLike("%" + search + "%")
+                    .List();
+            }
+        }
 
         public void Update(Documents entity)
         {
