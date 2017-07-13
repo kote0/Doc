@@ -14,9 +14,13 @@
 <p>
     @Html.ActionLink("Добавить документ", "AddDocument")
 </p>
+@using (Html.BeginForm("Search", "Home", FormMethod.Post))
+{
 <p>
-    <input type="text" id="Search" placeholder="Поиск" />
+    <input type="text" name="searchLine" placeholder="Поиск" />
+    <input type="submit" value="Найти" />
 </p>
+}
 <table class="table">
     <thead>
     <tr>
@@ -43,15 +47,6 @@
 
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script type="text/javascript">
-
-    $("#Search").keyup(function () {
-        var rows = $("tbody").find("tr").hide();
-        var data = this.value.split(" ");
-        $.each(data, function (i, v) {
-            rows.filter(":contains('" + v + "')").show();
-        });
-
-    });
 
     function Sort(elem, name) {
 

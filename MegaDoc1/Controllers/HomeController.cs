@@ -1,6 +1,7 @@
 ﻿using DomainModels.NHibernate;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -41,14 +42,22 @@ namespace MegaDoc1.Controllers
                 return View();
             }
 
-            byte[] binaryFile = new byte[file.ContentLength];
-            file.InputStream.Read(binaryFile, 0, file.ContentLength);
+            var currUser = UserRepository.GetbyLogin(User.Identity.Name);
 
-            // создать док
+            var path = Server.MapPath("~/Files/" + currUser.Login );
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            path += @"/" + file.FileName;
+            file.SaveAs(path);
+            
+
+            // создать документ
             var doc = DocumentsRepository.Create();
             doc.Name = name + System.IO.Path.GetExtension(file.FileName);
-            doc.Author = UserRepository.GetbyLogin(User.Identity.Name);
-            doc.BinaryFile = binaryFile;
+            doc.Author = currUser;
+            doc.Path = path;
 
             DocumentsRepository.Update(doc);
 
@@ -75,13 +84,19 @@ namespace MegaDoc1.Controllers
 
             }
 
-            Response.BinaryWrite(doc.BinaryFile);
             Response.AppendHeader("Content-Disposition", "attachment; filename=" + doc.Name);
+            Response.WriteFile(doc.Path);
             Response.End();
 
 
             return RedirectToAction("Index");
         }
-
+        [HttpPost]
+        public ActionResult Search(string searchLine)
+        {
+            var currUser = UserRepository.GetbyLogin(User.Identity.Name);
+            var model = DocumentsRepository.SearchDocument(searchLine, currUser);
+            return View("Index", model);
+        }
     }
 }
