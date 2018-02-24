@@ -1,11 +1,11 @@
-﻿
+﻿@using DomainModels.Extensions
 @{
     ViewBag.Title = "AddDocument";
     var message = ViewBag.Message;
 
 }
 
-<h2>Добавить документ</h2>
+<h2>@SR.T("Добавить документ")</h2>
 @if (message != null)
 {
     <p>@message</p>
@@ -17,7 +17,7 @@
     <div class="form-horizontal">
 
         <div class="form-group">
-            @Html.Label("Название", new { @class = "control-label col-md-2" })
+            @Html.Label(SR.T("Наименование документа"), new { @class = "control-label col-md-2" })
 
             <div class="col-md-10">
                 @Html.Editor("name", new { @class = "form-control" })
@@ -25,7 +25,7 @@
         </div>
 
         <div class="form-group">
-            @Html.Label("Файл", new { @class = "control-label col-md-2" })
+            @Html.Label(SR.T("Файл"), new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <input type="file" name="file" />
             </div>
@@ -33,7 +33,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Войти" class="btn btn-default" />
+                <input type="submit" value="@SR.T("Добавить")" class="btn btn-default" />
             </div>
         </div>
     </div>

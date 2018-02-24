@@ -24,7 +24,7 @@
                 @if (Request.IsAuthenticated)
                 {
                     <ul class="nav navbar-nav navbar-right">
-                        <li>@Html.ActionLink(User.Identity.Name, "")</li>
+                        <li>@Html.ActionLink(User.Identity.Name, "Index", "Home")</li>
                         <li>
                             @Html.ActionLink("Выйти", "LogOut", "Account")
                         </li>
@@ -37,6 +37,9 @@
         @RenderBody()
         <hr />
         <footer>
+            <a href="/Account/ChangeLocation?idLocation=1">Русский</a> 
+            <a href="/Account/ChangeLocation?idLocation=0">English</a> 
+            <a href="/Account/ChangeLocation?idLocation=2">Français</a>
             <p>&copy; @DateTime.Now.Year – приложение ASP.NET</p>
         </footer>
     </div>

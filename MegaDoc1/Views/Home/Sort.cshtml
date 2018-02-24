@@ -1,4 +1,5 @@
-﻿@model IEnumerable<DomainModels.Models.Documents>
+﻿@using DomainModels.Extensions
+@model IEnumerable<DomainModels.Models.Documents>
 
 <tbody>
     @foreach (var item in Model)
@@ -24,11 +25,11 @@
                 }
             </td>
             <td>
-                @Html.ActionLink("Удалить", "Delete", new { id = item.Id })
+                @Html.ActionLink(SR.T("Удалить"), "Delete", new { id = item.Id })
             </td>
 
             <td>
-                @Html.ActionLink("Скачать", "Download", new { id = item.Id })
+                @Html.ActionLink(SR.T("Скачать"), "Download", new { id = item.Id })
             </td>
         </tr>
     }

@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using DomainModels.Extensions;
 
 namespace MegaDoc1.Controllers
 {
@@ -33,12 +34,12 @@ namespace MegaDoc1.Controllers
         {
             if (string.IsNullOrWhiteSpace(name))
             {
-                ViewBag.Message = "Введите название документа";
+                ViewBag.Message = SR.T("Введите название документа");
                 return View();
             }
             if (file == null)
             {
-                ViewBag.Message = "Документ не найден";
+                ViewBag.Message = SR.T("Документ не найден");
                 return View();
             }
 
@@ -69,7 +70,7 @@ namespace MegaDoc1.Controllers
             var doc = DocumentsRepository.Get(Id);
             if (doc == null)
             {
-                ViewBag.Message = "Документ не найден";
+                ViewBag.Message = SR.T("Документ не найден");
             }
             DocumentsRepository.Delete(doc);
             return RedirectToAction("Index");
@@ -79,7 +80,7 @@ namespace MegaDoc1.Controllers
             var doc = DocumentsRepository.Get(Id);
             if (doc == null)
             {
-                ViewBag.Message = "Документ не найден";
+                ViewBag.Message = SR.T("Документ не найден");
                 return RedirectToAction("Index");
 
             }

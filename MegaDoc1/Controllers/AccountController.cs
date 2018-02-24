@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using DomainModels.Extensions;
 
 namespace MegaDoc1.Controllers
 {
@@ -32,7 +33,7 @@ namespace MegaDoc1.Controllers
             }
             else
             {
-                ModelState.AddModelError("", "Пользователя с таким логином и паролем нет");
+                ModelState.AddModelError("", SR.T("Пользователя с таким логином и паролем не существует"));
             }
             return View();
         }
@@ -42,5 +43,13 @@ namespace MegaDoc1.Controllers
             return RedirectToAction("Login", "Account");
         }
 
+        public ActionResult ChangeLocation(int? idLocation)
+        {
+            if (idLocation.HasValue)
+            {
+                SR.ChangeLocation(idLocation.Value);
+            }
+            return RedirectToAction("Login");
+        }
     }
 }

@@ -1,8 +1,8 @@
-﻿
+﻿@using DomainModels.Extensions
 @{
-    ViewBag.Title = "Вход";
+    ViewBag.Title = SR.T("Вход");
 }
-<h2>Аутентификация пользователя</h2>
+<h2>@SR.T("Добро пожаловать в MegaDoc")</h2>
 
 
 @using (Html.BeginForm())
@@ -10,7 +10,7 @@
     <div class="form-horizontal">
 
         <div class="form-group">
-            @Html.Label("Логин", new { @class = "control-label col-md-2" })
+            @Html.Label(SR.T("Логин"), new { @class = "control-label col-md-2" })
 
             <div class="col-md-10">
                 @Html.Editor("Login", new { @class = "form-control" })
@@ -18,7 +18,7 @@
         </div>
 
         <div class="form-group">
-            @Html.Label("Пароль", new { @class = "control-label col-md-2" })
+            @Html.Label(SR.T("Пароль"), new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.Editor("Password", new { @class = "form-control" })
             </div>
@@ -26,7 +26,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Войти" class="btn btn-default" />
+                <input type="submit" value="@SR.T("Войти")" class="btn btn-default" />
             </div>
         </div>
     </div>
