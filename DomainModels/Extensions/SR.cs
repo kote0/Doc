@@ -19,7 +19,7 @@ namespace DomainModels.Extensions
         static SR()
         {
             cultureInfo = new CultureInfo(cultureNames[0]);
-            var dir = System.IO.Path.Combine(@"D:\Files\Учеба\Doc\MegaDoc1", "MyResources");
+            var dir = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "MyResources");
             Thread.CurrentThread.CurrentCulture = cultureInfo;
             managers = new List<ResourceManager>();
             var resourcesName = new List<string>();
